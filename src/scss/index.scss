@@ -1,3 +1,33 @@
+@import 'normalize';
+@import 'header';
+@import 'main';
+
+
+// Mini reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+li {
+  list-style: none;
+}
+
+/* Убираем отступы */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, 
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+	max-width: 100%;
+	display: block;
+}
+
+
+// Main styles 
 body {
   margin: 0;
   padding: 0;
@@ -8,6 +38,17 @@ body {
   font-family: 'Roboto', 'sans-serif';
   font-weight: 400;
 }
+
+.container {
+  max-width: 1080px;
+  background: #FFFFFF;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.04);
+  border-radius: 20px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+
 
 // .wrapper {
 //   max-width: 1080px;
