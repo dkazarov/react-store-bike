@@ -36,6 +36,7 @@
     ]
   },
   "devDependencies": {
+    "macro-css": "^1.0.5",
     "sass": "^1.49.9"
   }
 }
