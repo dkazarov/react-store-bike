@@ -1,3 +1,7 @@
+* {
+  font-family: 'inter', system-ui;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', system-ui;
@@ -5,6 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #e7f6ff;
 }
+
 
 .wrapper {
   background: #ffffff;
@@ -63,4 +68,16 @@ header {
   height: 32px;
   width: 32px;
   cursor: pointer;
+}
+
+.search-block {
+  border: 1px solid #f3f3f3;
+  background-repeat: 10px;
+  padding: 0 15px;
+
+  input {
+    border: 0;
+    padding: 13px;
+    font-style: 16px;
+  }
 }
