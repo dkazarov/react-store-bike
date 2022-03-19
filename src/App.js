@@ -31,6 +31,9 @@ function App() {
 
         <div className="d-flex">
           <div className="card">
+            <div className="favorite">
+              <img src="/img/unliked.svg" alt="unliked icon" />
+            </div>
             <img width={133} height={112} src="/img/sneakers/1.jpg" alt="product icon" />
             <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
             <div className="d-flex justify-between align-center">
