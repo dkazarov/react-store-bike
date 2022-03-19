@@ -1,6 +1,11 @@
 function App() {
   return (
     <div className="wrapper clear">
+      <div className="overlay">
+        <div className="drawer">
+          
+        </div>
+      </div>
       <header className="d-flex justify-between align-center p-40">
         <div className="d-flex align-center">
           <img width={40} height={40} src="/img/logo.png" alt="logo icon" />
@@ -20,12 +25,11 @@ function App() {
         </ul>
       </header>
       <div className="content p-40">
-        
         <div className="d-flex align-center mb-40 justify-between">
           <h1>Все кроссовки</h1>
           <div className="search-block d-flex">
-              <img src="/img/search.svg" alt="search icon" />
-              <input type="text" placeholder="Поиск..."/>
+            <img src="/img/search.svg" alt="search icon" />
+            <input type="text" placeholder="Поиск..." />
           </div>
         </div>
 
@@ -34,7 +38,12 @@ function App() {
             <div className="favorite">
               <img src="/img/unliked.svg" alt="unliked icon" />
             </div>
-            <img width={133} height={112} src="/img/sneakers/1.jpg" alt="product icon" />
+            <img
+              width={133}
+              height={112}
+              src="/img/sneakers/1.jpg"
+              alt="product icon"
+            />
             <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
             <div className="d-flex justify-between align-center">
               <div className="d-flex flex-column">
@@ -47,7 +56,12 @@ function App() {
             </div>
           </div>
           <div className="card">
-            <img width={133} height={112} src="/img/sneakers/2.jpg" alt="Sneakers" />
+            <img
+              width={133}
+              height={112}
+              src="/img/sneakers/2.jpg"
+              alt="Sneakers"
+            />
             <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
             <div className="d-flex justify-between align-center">
               <div className="d-flex flex-column">
@@ -60,7 +74,12 @@ function App() {
             </div>
           </div>
           <div className="card">
-            <img width={133} height={112} src="/img/sneakers/3.jpg" alt="Sneakers" />
+            <img
+              width={133}
+              height={112}
+              src="/img/sneakers/3.jpg"
+              alt="Sneakers"
+            />
             <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
             <div className="d-flex justify-between align-center">
               <div className="d-flex flex-column">
@@ -73,7 +92,12 @@ function App() {
             </div>
           </div>
           <div className="card">
-            <img width={133} height={112} src="/img/sneakers/4.jpg" alt="Sneakers" />
+            <img
+              width={133}
+              height={112}
+              src="/img/sneakers/4.jpg"
+              alt="Sneakers"
+            />
             <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
             <div className="d-flex justify-between align-center">
               <div className="d-flex flex-column">
