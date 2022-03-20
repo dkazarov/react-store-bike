@@ -1,18 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import Card from "./components/Card";
-import Drawer from "./components/Drawer";
-import Header from "./components/Header";
+import React, { useContext, useEffect, useState } from 'react';
+import axios from 'axios';
+
+import Card from './components/Card';
+import Drawer from './components/Drawer';
+import Header from './components/Header';
 
 function App() {
   const [items, setItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const [cartOpened, setCartOpened] = useState(false);
 
   useEffect(() => {
-    fetch("https://623874010a54d2ceab75d0ff.mockapi.io/items")
-      .then((res) => res.json())
-      .then((json) => setItems(json));
+    axios.get('https://623874010a54d2ceab75d0ff.mockapi.io/items')
+      .then(res => setItems(res.data))
   }, []);
 
   const onAddToCart = (obj) => {
@@ -31,12 +32,12 @@ function App() {
       <Header onClickCart={() => setCartOpened(true)} />
       <div className="content p-40">
         <div className="d-flex align-center mb-40 justify-between">
-          <h1>{searchValue ?  `Поиск: ${searchValue}` : 'Все кроссовки' }</h1>
+          <h1>{searchValue ? `Поиск: ${searchValue}` : 'Все кроссовки'}</h1>
           <div className="search-block d-flex">
             <img src="/img/search.svg" alt="search icon" />
             {searchValue && (
               <img
-                onClick={() => setSearchValue("")}
+                onClick={() => setSearchValue('')}
                 className="claer cu-p"
                 src="/img/btn-remove.svg"
                 alt="remove icon"
@@ -53,7 +54,9 @@ function App() {
         <div className="d-flex flex-wrap">
           {items
             // Search
-            .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+            .filter((item) =>
+              item.title.toLowerCase().includes(searchValue.toLowerCase())
+            )
             // Render Card
             .map((item, index) => (
               <Card
@@ -62,7 +65,7 @@ function App() {
                 price={item.price}
                 imageUrl={item.imageUrl}
                 onPlus={(obj) => onAddToCart(item)}
-                onFavorite={() => console.log("1")}
+                onFavorite={() => console.log('1')}
               />
             ))}
         </div>
