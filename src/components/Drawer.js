@@ -1,6 +1,6 @@
 import React from "react";
 
-const Drawer = (props) => {
+const Drawer = ({ onClose, items = [] }) => {
   return (
     <div className="overlay">
       <div className="drawer">
@@ -8,7 +8,7 @@ const Drawer = (props) => {
           {" "}
           Корзина{" "}
           <img
-            onClick={props.onClose}
+            onClick={onClose}
             className="removeBtn cu-p"
             src="/img/btn-remove.svg"
             alt="remove icon"
@@ -16,22 +16,25 @@ const Drawer = (props) => {
         </h2>
 
         <div className="items">
-          <div className="cartItem d-flex align-center mb-20">
-            <div
-              className="cartItemimg"
-              style={{ backgroundImage: "url(/img/sneakers/1.jpg)" }}
-            ></div>
-            <div className="mr-20 flex">
-              <p className="mb-5">Мужские Кроссовки Nike Air Max 270</p>
-              <b>1200 грн</b>
+          {items.map((obj) => (
+            <div className="cartItem d-flex align-center mb-20">
+              <div
+                className="cartItemimg"
+                style={{ backgroundImage: `url(${obj.imageUrl})` }}
+              ></div>
+              <div className="mr-20 flex">
+                <p className="mb-5">{obj.title}</p>
+                <b>{obj.price}</b>
+              </div>
+              <img
+                className="removeBtn"
+                src="/img/btn-remove.svg"
+                alt="remove icon"
+              />
             </div>
-            <img
-              className="removeBtn"
-              src="/img/btn-remove.svg"
-              alt="remove icon"
-            />
-          </div>
+          ))}
         </div>
+
         <div className="cartTotlaBlock">
           <ul>
             <li>
