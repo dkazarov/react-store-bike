@@ -10,6 +10,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [cartOpened, setCartOpened] = useState(false);
+  const [favorites, setFavorites] = [];
 
   useEffect(() => {
     axios
@@ -33,6 +34,11 @@ function App() {
 
   const onChangesearchInput = (event) => {
     setSearchValue(event.target.value);
+  };
+
+  const onAddToFavorite = (obj) => {
+    axios.post('https://623874010a54d2ceab75d0ff.mockapi.io/favorites', obj);
+    setFavorites((prev) => [...prev, obj]);
   };
 
   return (
@@ -80,7 +86,7 @@ function App() {
                 price={item.price}
                 imageUrl={item.imageUrl}
                 onPlus={(obj) => onAddToCart(item)}
-                onFavorite={() => console.log('1')}
+                onFavorite={(obj) => onAddToFavorite(item)}
               />
             ))}
         </div>
