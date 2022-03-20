@@ -31,15 +31,17 @@ function App() {
       <Header onClickCart={() => setCartOpened(true)} />
       <div className="content p-40">
         <div className="d-flex align-center mb-40 justify-between">
-          <h1>Все кроссовки</h1>
+          <h1>{searchValue ?  `Поиск: ${searchValue}` : 'Все кроссовки' }</h1>
           <div className="search-block d-flex">
             <img src="/img/search.svg" alt="search icon" />
-            {searchValue && <img
-              onClick={()=> setSearchValue('')}
-              className="claer cu-p"
-              src="/img/btn-remove.svg"
-              alt="remove icon"
-            />}
+            {searchValue && (
+              <img
+                onClick={() => setSearchValue("")}
+                className="claer cu-p"
+                src="/img/btn-remove.svg"
+                alt="remove icon"
+              />
+            )}
             <input
               onChange={onChangesearchInput}
               type="text"
@@ -49,16 +51,20 @@ function App() {
           </div>
         </div>
         <div className="d-flex flex-wrap">
-          {items.map((item, index) => (
-            <Card
-              key={index}
-              title={item.title}
-              price={item.price}
-              imageUrl={item.imageUrl}
-              onPlus={(obj) => onAddToCart(item)}
-              onFavorite={() => console.log("1")}
-            />
-          ))}
+          {items
+            // Search
+            .filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+            // Render Card
+            .map((item, index) => (
+              <Card
+                key={index}
+                title={item.title}
+                price={item.price}
+                imageUrl={item.imageUrl}
+                onPlus={(obj) => onAddToCart(item)}
+                onFavorite={() => console.log("1")}
+              />
+            ))}
         </div>
       </div>
     </div>
