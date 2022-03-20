@@ -6,6 +6,7 @@ import Header from "./components/Header";
 function App() {
   const [items, setItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
   const [cartOpened, setCartOpened] = useState(false);
 
   useEffect(() => {
@@ -15,7 +16,11 @@ function App() {
   }, []);
 
   const onAddToCart = (obj) => {
-      setCartItems((prev) => [...prev, obj]);
+    setCartItems((prev) => [...prev, obj]);
+  };
+
+  const onChangesearchInput = (event) => {
+    setSearchValue(event.target.value);
   };
 
   return (
@@ -29,7 +34,18 @@ function App() {
           <h1>Все кроссовки</h1>
           <div className="search-block d-flex">
             <img src="/img/search.svg" alt="search icon" />
-            <input type="text" placeholder="Поиск..." />
+            {searchValue && <img
+              onClick={()=> setSearchValue('')}
+              className="claer cu-p"
+              src="/img/btn-remove.svg"
+              alt="remove icon"
+            />}
+            <input
+              onChange={onChangesearchInput}
+              type="text"
+              value={searchValue}
+              placeholder="Поиск..."
+            />
           </div>
         </div>
         <div className="d-flex flex-wrap">
