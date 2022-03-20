@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
-import styles from "./Card.module.scss";
+import styles from './Card.module.scss';
 
 const Cart = ({ title, price, imageUrl, onFavorite, onPlus }) => {
   const [isAdded, setIsAdded] = useState(false);
+  const [isFavorite, setFavorite] = useState(false);
 
   const onClickPlus = () => {
     onPlus({ title, price, imageUrl });
@@ -24,7 +25,7 @@ const Cart = ({ title, price, imageUrl, onFavorite, onPlus }) => {
         <img
           className={styles.plus}
           onClick={onClickPlus}
-          src={isAdded ? "/img/btn-checked.svg" : "/img/btn-plus.svg"}
+          src={isAdded ? '/img/btn-checked.svg' : '/img/btn-plus.svg'}
           alt="Plus"
         />
       </div>

@@ -1,12 +1,12 @@
-import React from "react";
+import React from 'react';
 
-const Drawer = ({ onClose, items = [] }) => {
+const Drawer = ({ onClose, items = [], onDelete }) => {
   return (
     <div className="overlay">
       <div className="drawer">
         <h2 className="mb-30 d-flex justify-between">
-          {" "}
-          Корзина{" "}
+          {' '}
+          Корзина{' '}
           <img
             onClick={onClose}
             className="removeBtn cu-p"
@@ -27,6 +27,7 @@ const Drawer = ({ onClose, items = [] }) => {
                 <b>{obj.price}</b>
               </div>
               <img
+                onClick={() => onDelete(obj.id)}
                 className="removeBtn"
                 src="/img/btn-remove.svg"
                 alt="remove icon"
