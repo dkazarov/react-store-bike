@@ -3,10 +3,53 @@ import Card from "./components/Card";
 import Drawer from "./components/Drawer";
 import Header from "./components/Header";
 
-const arr = [];
+
 
 function App() {
-  const [items, setItems] = useState([]);
+  const [items, setItems ] = useState(
+    [
+      {
+      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "price": 1299,
+      "imageUrl": "/img/sneakers/1.jpg"
+      },
+      {
+      "title": "Мужские Кроссовки Nike Air Max 270",
+      "price": 1560,
+      "imageUrl": "/img/sneakers/2.jpg"
+      },
+      {
+      "title": "Мужские Кроссовки Nike Blazer Mid Suede",
+      "price": 849,
+      "imageUrl": "/img/sneakers/3.jpg"
+      },
+      {
+      "title": "Кроссовки Puma X Aka Boku Future Rider",
+      "price": 899,
+      "imageUrl": "/img/sneakers/4.jpg"
+      },
+      {
+      "title": "Мужские Кроссовки Under Armour Curry 8",
+      "price": 1519,
+      "imageUrl": "/img/sneakers/5.jpg"
+      },
+      {
+      "title": "Мужские Кроссовки Nike Kyrie 7",
+      "price": 899,
+      "imageUrl": "/img/sneakers/6.jpg"
+      },
+      {
+      "title": "Мужские Кроссовки Jordan Air Jordan 11",
+      "price": 899,
+      "imageUrl": "/img/sneakers/7.jpg"
+      },
+      {
+      "title": "Мужские Кроссовки Nike LeBron XVIII",
+      "price": 1649,
+      "imageUrl": "/img/sneakers/8 .jpg"
+      }
+      ]
+  )
   const [cartOpened, setCartOpened] = useState(false);
 
   return (
@@ -21,7 +64,7 @@ function App() {
             <input type="text" placeholder="Поиск..." />
           </div>
         </div>
-        <div className="d-flex">
+        <div className="d-flex flex-wrap">
           {items.map((obj) => (
             <Card
               title={obj.title}
