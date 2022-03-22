@@ -10,7 +10,6 @@ const Home = ({
   onAddToFavorite,
   setSearchValue,
 }) => {
-
   return (
     <div className="content p-40">
       <div className="d-flex align-center mb-40 justify-between">
@@ -34,18 +33,17 @@ const Home = ({
         </div>
       </div>
       <div className="d-flex flex-wrap">
-        {items.filter((item) =>
+        {items
+          .filter((item) =>
             item.title.toLowerCase().includes(searchValue.toLowerCase())
           )
           // Render Card
           .map((item, index) => (
             <Card
               key={index}
-              title={item.title}
-              price={item.price}
-              imageUrl={item.imageUrl}
-              onPlus={(obj) => onAddToCart(item)}
               onFavorite={(obj) => onAddToFavorite(item)}
+              onPlus={(obj) => onAddToCart(item)}
+              {...item}
             />
           ))}
       </div>

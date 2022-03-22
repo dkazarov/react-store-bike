@@ -42,9 +42,15 @@ function App() {
     setSearchValue(event.target.value);
   };
 
-  const onAddToFavorite = (obj) => {
-    axios.post('https://623874010a54d2ceab75d0ff.mockapi.io/favorites', obj);
-    setFavorites((prev) => [...prev, obj]);
+  const onAddToFavorite = async (obj) => {
+    if (favorites.find((favObj) => favObj.id === obj.id)) {
+      axios.delete(
+        `https://623874010a54d2ceab75d0ff.mockapi.io/favorites/${obj.id}`
+      );
+    } else {
+      const { data } = await axios.post('https://623874010a54d2ceab75d0ff.mockapi.io/favorites', obj);
+      setFavorites((prev) => [...prev, data]);
+    }
   };
 
   return (
@@ -71,7 +77,12 @@ function App() {
             />
           }
         />
-        <Route path="/favorites" element={<Favorites items={favorites}/>} />
+        <Route
+          path="/favorites"
+          element={
+            <Favorites items={favorites} onAddToFavorite={onAddToFavorite} />
+          }
+        />
       </Routes>
     </div>
   );

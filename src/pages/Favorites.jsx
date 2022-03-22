@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 
-const Favorites = ({ items }) => {
+const Favorites = ({ id, items, onAddToFavorite }) => {
   return (
     <div className="content p-40">
       <div className="d-flex align-center mb-40 justify-between">
@@ -13,10 +13,9 @@ const Favorites = ({ items }) => {
           .map((item, index) => (
             <Card
               key={index}
-              title={item.title}
-              price={item.price}
-              imageUrl={item.imageUrl}
               favorited={true}
+              onFavorite={onAddToFavorite}
+              {...item}
             />
           ))}
       </div>
