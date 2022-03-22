@@ -9,6 +9,7 @@ const Home = ({
   onChangesearchInput,
   onAddToFavorite,
   setSearchValue,
+  cartItems,
 }) => {
   return (
     <div className="content p-40">
@@ -37,12 +38,14 @@ const Home = ({
           .filter((item) =>
             item.title.toLowerCase().includes(searchValue.toLowerCase())
           )
-          // Render Card
           .map((item, index) => (
             <Card
               key={index}
               onFavorite={(obj) => onAddToFavorite(item)}
               onPlus={(obj) => onAddToCart(item)}
+              added={cartItems.some(
+                (obj) => Number(obj.id) === Number(item.id)
+              )}
               {...item}
             />
           ))}

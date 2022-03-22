@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 
 import styles from './Card.module.scss';
 
-const Cart = ({ id, title, price, imageUrl, onFavorite, onPlus, favorited = false }) => {
-  const [isAdded, setIsAdded] = useState(false);
+const Cart = ({
+  id,
+  title,
+  price,
+  imageUrl,
+  onFavorite,
+  onPlus,
+  favorited = false,
+  added = false,
+}) => {
+  const [isAdded, setIsAdded] = useState(added);
   const [isFavorite, setIsFavorite] = useState(favorited);
 
   const onClickPlus = () => {
