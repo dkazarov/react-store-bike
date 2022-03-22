@@ -3,6 +3,8 @@ import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 
 import Home from './pages/Home.jsx';
+import Favorites from './pages/Favorites.jsx';
+
 import Drawer from './components/Drawer';
 import Header from './components/Header';
 
@@ -11,7 +13,7 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [cartOpened, setCartOpened] = useState(false);
-  const [favorites, setFavorites] = [];
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     axios
@@ -21,6 +23,9 @@ function App() {
     axios
       .get('https://623874010a54d2ceab75d0ff.mockapi.io/cart')
       .then((res) => setCartItems(res.data));
+    axios
+      .get('https://623874010a54d2ceab75d0ff.mockapi.io/favorites')
+      .then((res) => setFavorites(res.data));
   }, []);
 
   const onAddToCart = (obj) => {
@@ -66,6 +71,7 @@ function App() {
             />
           }
         />
+        <Route path="/favorites" element={<Favorites items={favorites}/>} />
       </Routes>
     </div>
   );
