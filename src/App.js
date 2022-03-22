@@ -43,13 +43,20 @@ function App() {
   };
 
   const onAddToFavorite = async (obj) => {
-    if (favorites.find((favObj) => favObj.id === obj.id)) {
-      axios.delete(
-        `https://623874010a54d2ceab75d0ff.mockapi.io/favorites/${obj.id}`
-      );
-    } else {
-      const { data } = await axios.post('https://623874010a54d2ceab75d0ff.mockapi.io/favorites', obj);
-      setFavorites((prev) => [...prev, data]);
+    try {
+      if (favorites.find((favObj) => favObj.id === obj.id)) {
+        axios.delete(
+          `https://623874010a54d2ceab75d0ff.mockapi.io/favorites/${obj.id}`
+        );
+      } else {
+        const { data } = await axios.post(
+          'https://623874010a54d2ceab75d0ff.mockapi.io/favorites',
+          obj
+        );
+        setFavorites((prev) => [...prev, data]);
+      }
+    } catch {
+      alert('Не удалось добавить в избранное');
     }
   };
 
