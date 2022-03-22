@@ -19,7 +19,7 @@ const Header = (props) => {
           <span>1200 грн</span>
         </li>
         <li>
-          <Link to="/expenses">
+          <Link to="/favorites">
             <img
               className="mr-20 cu-p"
               width={18}
