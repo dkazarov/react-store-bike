@@ -2,13 +2,15 @@ import React from 'react';
 import Card from '../components/Card';
 
 const Home = ({
-  searchValue,
-  onChangesearchInput,
   items,
+  searchValue,
+  favorites,
   onAddToCart,
-  setSearchValue,
+  onChangesearchInput,
   onAddToFavorite,
+  setSearchValue,
 }) => {
+
   return (
     <div className="content p-40">
       <div className="d-flex align-center mb-40 justify-between">
@@ -32,9 +34,7 @@ const Home = ({
         </div>
       </div>
       <div className="d-flex flex-wrap">
-        {items
-          // Search
-          .filter((item) =>
+        {items.filter((item) =>
             item.title.toLowerCase().includes(searchValue.toLowerCase())
           )
           // Render Card
