@@ -51,11 +51,11 @@
   }
 }
 
-@media (min-width: 320px) and (max-width: 425px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .card {
     border: 1px solid #f0e9e9;
-    padding: 20px;
-    width: 100%;
+    padding: 15px;
+    width: 100% !important;
     border-radius: 15px;
     margin-bottom: 20px;
     transition: box-shadow 0.5 ease-in-out, transform 0.5 ease-in-out;
