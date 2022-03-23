@@ -17,7 +17,7 @@ const Drawer = ({ onClose, items = [], onDelete, opened }) => {
           <img
             onClick={onClose}
             className="removeBtn cu-p"
-            src="/img/btn-remove.svg"
+            src="img/btn-remove.svg"
             alt="remove icon"
           />
         </h2>
@@ -36,7 +36,7 @@ const Drawer = ({ onClose, items = [], onDelete, opened }) => {
               <img
                 onClick={() => onDelete(obj.id)}
                 className="removeBtn"
-                src="/img/btn-remove.svg"
+                src="img/btn-remove.svg"
                 alt="remove icon"
               />
             </div>
@@ -52,7 +52,7 @@ const Drawer = ({ onClose, items = [], onDelete, opened }) => {
             </li>
           </ul>
           <button className="greenButton">
-            Оформить заказ <img src="/img/arrow.svg" alt="arrow icon" />
+            Оформить заказ <img src="img/arrow.svg" alt="arrow icon" />
           </button>
         </div>
       </div>

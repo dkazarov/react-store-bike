@@ -47,7 +47,7 @@ const Cart = ({
         <>
           <div className={styles.favorite} onClick={onClickFavorite}>
             <img
-              src={isFavorite ? '/img/liked.svg' : '/img/unliked.svg'}
+              src={isFavorite ? 'img/liked.svg' : 'img/unliked.svg'}
               alt="unliked icon"
             />
           </div>
@@ -61,7 +61,7 @@ const Cart = ({
             <img
               className={styles.plus}
               onClick={onClickPlus}
-              src={isItemAdded(id) ? '/img/btn-checked.svg' : '/img/btn-plus.svg'}
+              src={isItemAdded(id) ? 'img/btn-checked.svg' : 'img/btn-plus.svg'}
               alt="Plus"
             />
           </div>
