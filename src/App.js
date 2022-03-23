@@ -41,9 +41,8 @@ function App() {
   }, []);
 
   const onAddToCart = (obj) => {
-    console.log(obj);
     try {
-      if (cartItems.find((item) => item.id === obj.id)) {
+      if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
         axios.delete(
           `https://623874010a54d2ceab75d0ff.mockapi.io/cart/${obj.id}`
         );
@@ -61,7 +60,9 @@ function App() {
 
   const onDeleteItems = (id) => {
     axios.delete(`https://623874010a54d2ceab75d0ff.mockapi.io/cart/${id}`);
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+    setCartItems((prev) =>
+      prev.filter((item) => Number(item.id) !== Number(id))
+    );
   };
 
   const onChangesearchInput = (event) => {
