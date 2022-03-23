@@ -29,9 +29,9 @@ const Home = ({
   };
 
   return (
-    <div className="content p-40">
+    <div className="content">
       <div className="d-flex align-center mb-40 justify-between">
-        <h1>{searchValue ? `Поиск: ${searchValue}` : 'Все кроссовки'}</h1>
+        <h1>{searchValue ? `Поиск: ${searchValue}` : 'Все модели'}</h1>
         <div className="search-block d-flex">
           <img src="/img/search.svg" alt="search icon" />
           {searchValue && (
@@ -50,7 +50,7 @@ const Home = ({
           />
         </div>
       </div>
-      <div className="d-flex flex-wrap">{renderItems()}</div>
+      <div className="d-flex flex-wrap justify-between">{renderItems()}</div>
     </div>
   );
 };

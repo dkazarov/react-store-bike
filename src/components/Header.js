@@ -7,7 +7,7 @@ const Header = (props) => {
   const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
 
   return (
-    <header className="d-flex justify-between align-center p-40">
+    <header className="d-flex justify-between align-center">
       <Link to="/">
         <div className="d-flex align-center">
           <img width={40} height={40} src="img/logo_bike.svg" alt="logo icon" />
@@ -28,7 +28,7 @@ const Header = (props) => {
               className="mr-20 cu-p"
               width={24}
               height={24}
-              src="img/heart.svg"
+              src="img/heart-header.svg"
               alt="favorite icon"
             />
           </Link>

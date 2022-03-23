@@ -31,14 +31,14 @@ const Cart = ({
       {loading ? (
         <ContentLoader
           speed={2}
-          width={155}
+          width={200}
           height={250}
-          viewBox="0 0 155 265"
+          viewBox="0 0 200 265"
           backgroundColor="#f3f3f3"
           foregroundColor="#ecebeb"
         >
-          <rect x="0" y="0" rx="10" ry="10" width="150" height="90" />
-          <rect x="0" y="106" rx="5" ry="5" width="150" height="15" />
+          <rect x="0" y="0" rx="10" ry="10" width="175" height="90" />
+          <rect x="0" y="106" rx="5" ry="5" width="175" height="15" />
           <rect x="0" y="137" rx="5" ry="5" width="100" height="15" />
           <rect x="0" y="171" rx="5" ry="5" width="80" height="24" />
           <rect x="124" y="162" rx="5" ry="5" width="32" height="32" />

@@ -1,10 +1,10 @@
 * {
-  font-family: "inter", system-ui;
+  font-family: 'inter', system-ui;
 }
 
 body {
   margin: 0;
-  font-family: "Inter", system-ui;
+  font-family: 'Inter', system-ui;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff7e7;
@@ -20,6 +20,7 @@ body {
 
 header {
   border-bottom: 1px solid #eaeaea;
+  padding: 40px;
   img {
     margin-right: 15px;
   }
@@ -31,6 +32,7 @@ header {
 }
 
 .content {
+  padding: 40px;
   h1 {
     margin: 0;
   }
@@ -148,5 +150,55 @@ header {
     &:hover {
       opacity: 1;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .search-block {
+    border: 1px solid #f3f3f3;
+    background-repeat: 10px;
+    padding: 0 15px;
+    position: relative;
+
+    .claer {
+      position: absolute;
+      right: 8px;
+      width: 18px;
+      height: 18px;
+      top: 8px;
+    }
+
+    input {
+      border: 0;
+      padding: 8px;
+      font-style: 12px;
+    }
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: 360px) and (max-width: 425px) {
+  .wrapper {
+    margin: 0;
+    padding: 0;
+  }
+  .content {
+    padding: 10px;
+    .search-block {
+      display: none;
+    }
+  }
+  h1 {
+    text-align: center !important;
+  }
+  header {
+    padding: 20px;
+    margin-top: 0;
+  }
+  header h3, p {
+    font-size: 12px;
   }
 }
