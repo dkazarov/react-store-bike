@@ -13,6 +13,7 @@ const Cart = ({
   onPlus,
   favorited = false,
   loading = false,
+  added = false,
 }) => {
   const { isItemAdded } = React.useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorited);
@@ -61,7 +62,7 @@ const Cart = ({
             <img
               className={styles.plus}
               onClick={onClickPlus}
-              src={false ? '/img/btn-checked.svg' : '/img/btn-plus.svg'}
+              src={isItemAdded(id) ? '/img/btn-checked.svg' : '/img/btn-plus.svg'}
               alt="Plus"
             />
           </div>

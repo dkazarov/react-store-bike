@@ -1,18 +1,17 @@
 import React from 'react';
 import Card from '../components/Card';
-
+import AppContext from '../context';
 
 const Home = ({
   items,
   searchValue,
-  favorites,
   onAddToCart,
   onChangesearchInput,
   onAddToFavorite,
   setSearchValue,
-  cartItems,
   isLoading,
 }) => {
+  const { isItemAdded } = React.useContext(AppContext);
 
   const renderItems = () => {
     const filteredItems = items.filter((item) =>
