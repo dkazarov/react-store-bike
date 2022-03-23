@@ -11,12 +11,16 @@ import Drawer from './components/Drawer';
 import Header from './components/Header';
 
 function App() {
+  // States
   const [items, setItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
   const [searchValue, setSearchValue] = useState('');
   const [cartOpened, setCartOpened] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+console.log(cartItems);
+
 
   useEffect(() => {
     async function fetcData() {
