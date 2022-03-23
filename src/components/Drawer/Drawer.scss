@@ -1,5 +1,5 @@
 .overlay {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 0;
   width: 100%;
@@ -15,7 +15,7 @@
 .drawer {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  position: fixed;
   right: 0;
   height: 100%;
   width: 420px;
