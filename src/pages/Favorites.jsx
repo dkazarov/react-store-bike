@@ -2,8 +2,8 @@ import React from 'react';
 import AppContext from '../context';
 import Card from '../components/Card';
 
-const Favorites = ({ onAddToFavorite }) => {
-  const { favorites } = React.useContext(AppContext);
+const Favorites = () => {
+  const { favorites, onAddToFavorite } = React.useContext(AppContext);
 
   return (
     <div className="content p-40">
