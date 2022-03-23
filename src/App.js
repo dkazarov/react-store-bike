@@ -10,7 +10,6 @@ import Favorites from './pages/Favorites.jsx';
 import Drawer from './components/Drawer';
 import Header from './components/Header';
 
-
 function App() {
   const [items, setItems] = useState([]);
   const [cartItems, setCartItems] = useState([]);
@@ -87,8 +86,12 @@ function App() {
     }
   };
 
+  const isItemAdded = (id) => {
+    return cartItems.some((obj) => Number(obj.id) === Number(id));
+  };
+
   return (
-    <AppContext.Provider value={{ items, cartItems, favorites }}>
+    <AppContext.Provider value={{ items, cartItems, favorites, isItemAdded }}>
       <div className="wrapper clear">
         {cartOpened && (
           <Drawer
