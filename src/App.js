@@ -48,6 +48,7 @@ function App() {
   }, []);
 
   const onAddToCart = (obj) => {
+    console.log(obj.id)
     try {
       if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
         setCartItems((prev) =>
