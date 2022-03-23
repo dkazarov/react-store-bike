@@ -23,21 +23,25 @@ function App() {
 
   useEffect(() => {
     async function fetcData() {
-      const cartResponse = await axios.get(
-        'https://623874010a54d2ceab75d0ff.mockapi.io/cart'
-      );
-      const favoritesResponse = await axios.get(
-        'https://623874010a54d2ceab75d0ff.mockapi.io/favorites'
-      );
-      const itemsResponse = await axios.get(
-        'https://623874010a54d2ceab75d0ff.mockapi.io/items'
-      );
+      try {
+        const cartResponse = await axios.get(
+          'https://623874010a54d2ceab75d0ff.mockapi.io/cart'
+        );
+        const favoritesResponse = await axios.get(
+          'https://623874010a54d2ceab75d0ff.mockapi.io/favorites'
+        );
+        const itemsResponse = await axios.get(
+          'https://623874010a54d2ceab75d0ff.mockapi.io/items'
+        );
 
-      setIsLoading(false);
+        setIsLoading(false);
 
-      setCartItems(cartResponse.data);
-      setFavorites(favoritesResponse.data);
-      setItems(itemsResponse.data);
+        setCartItems(cartResponse.data);
+        setFavorites(favoritesResponse.data);
+        setItems(itemsResponse.data);
+      } catch {
+        alert('Ошибка при запросе данных');
+      }
     }
 
     fetcData();
@@ -46,26 +50,30 @@ function App() {
   const onAddToCart = (obj) => {
     try {
       if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
-        axios.delete(
-          `https://623874010a54d2ceab75d0ff.mockapi.io/cart/${obj.id}`
-        );
         setCartItems((prev) =>
           prev.filter((item) => Number(item.id) !== Number(obj.id))
         );
+        axios.delete(
+          `https://623874010a54d2ceab75d0ff.mockapi.io/cart/${obj.id}`
+        );
       } else {
-        axios.post('https://623874010a54d2ceab75d0ff.mockapi.io/cart', obj);
         setCartItems((prev) => [...prev, obj]);
+        axios.post('https://623874010a54d2ceab75d0ff.mockapi.io/cart', obj);
       }
     } catch {
       alert('Не удалось добавить в корзину');
     }
   };
 
-  const onDeleteItems = (id) => {
-    axios.delete(`https://623874010a54d2ceab75d0ff.mockapi.io/cart/${id}`);
-    setCartItems((prev) =>
-      prev.filter((item) => Number(item.id) !== Number(id))
-    );
+  const onDeleteItems = async (id) => {
+    try {
+      await axios.delete(`https://623874010a54d2ceab75d0ff.mockapi.io/cart/${id}`);
+      setCartItems((prev) =>
+        prev.filter((item) => Number(item.id) !== Number(id))
+      );
+    } catch {
+      alert('Не удалось удалить из корзины');
+    }
   };
 
   const onChangesearchInput = (event) => {
