@@ -13,7 +13,6 @@ const Cart = ({
   onPlus,
   favorited = false,
   loading = false,
-  added = false,
 }) => {
   const { isItemAdded } = React.useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(favorited);
@@ -52,7 +51,7 @@ const Cart = ({
               alt="unliked icon"
             />
           </div>
-          <img width="100%" height={135} src={imageUrl} alt="product icon" />
+          <img width="100%" src={imageUrl} alt="product icon" />
           <h5>{title}</h5>
           <div className="d-flex justify-between align-center">
             <div className="d-flex flex-column">

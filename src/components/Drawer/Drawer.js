@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
-import AppContext from '../context.js';
+import AppContext from '../../context.js';
 
-const Drawer = ({ onClose, items = [], onDelete }) => {
+import './Drawer.scss';
+
+const Drawer = ({ onClose, items = [], onDelete, opened }) => {
   const { cartItems } = useContext(AppContext);
 
   const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
 
   return (
-    <div className="overlay">
+    <div className={`overlay ${opened ? 'overlayVisible' : ''}`}>
       <div className="drawer">
         <h2 className="mb-30 d-flex justify-between">
           {' '}

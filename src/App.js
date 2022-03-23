@@ -7,7 +7,7 @@ import axios from 'axios';
 import Home from './pages/Home.jsx';
 import Favorites from './pages/Favorites.jsx';
 
-import Drawer from './components/Drawer';
+import Drawer from './components/Drawer/Drawer';
 import Header from './components/Header';
 
 function App() {
@@ -19,8 +19,7 @@ function App() {
   const [favorites, setFavorites] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
-console.log(cartItems);
-
+  console.log(cartItems);
 
   useEffect(() => {
     async function fetcData() {
@@ -103,13 +102,12 @@ console.log(cartItems);
       value={{ items, cartItems, favorites, isItemAdded, onAddToFavorite }}
     >
       <div className="wrapper clear">
-        {cartOpened && (
-          <Drawer
-            items={cartItems}
-            onClose={() => setCartOpened(false)}
-            onDelete={onDeleteItems}
-          />
-        )}
+        <Drawer
+          items={cartItems}
+          onClose={() => setCartOpened(false)}
+          onDelete={onDeleteItems}
+          opened={cartOpened}
+        />
         <Header onClickCart={() => setCartOpened(true)} />
         <Routes>
           <Route
