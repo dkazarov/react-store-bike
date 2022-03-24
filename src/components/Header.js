@@ -10,7 +10,7 @@ const Header = (props) => {
     <header className="d-flex justify-between align-center">
       <Link to="/">
         <div className="d-flex align-center">
-          <img width={40} height={40} src="img/logo_bike.svg" alt="logo icon" />
+          <img width={40} height={40} src="img/logo.svg" alt="logo icon" />
           <div>
             <h3 className="text-uppercase">React store</h3>
             <p className="opacity-5">Магазин лучших Велосипедов</p>
